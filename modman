@@ -1,0 +1,4 @@
+app/code/community/Chapagain/GoogleTagManager /app/code/community/Chapagain/GoogleTagManager
+app/design/frontend/base/default/layout/chapagain/googletagmanager.xml app/design/frontend/base/default/layout/chapagain/googletagmanager.xml
+app/design/frontend/base/default/template/chapagain/googletagmanager app/design/frontend/base/default/template/chapagain/googletagmanager
+app/etc/modules/Chapagain_GoogleTagManager.xml app/etc/modules/Chapagain_GoogleTagManager.xml
