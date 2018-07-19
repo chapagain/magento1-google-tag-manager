@@ -100,7 +100,7 @@ class Chapagain_GoogleTagManager_Block_Gtm extends Mage_Core_Block_Template
 			 * English locale price = 1,230.55 becomes the following in Dutch locale:
 			 * Dutch locale price = 1.230,55
 			 */
-			$objProduct->price = (string) Mage::app()->getLocale()->getNumber(Mage::helper('tax')->getPrice($product, $product->getFinalPrice(), true));
+			$objProduct->price = (double) Mage::app()->getLocale()->getNumber(Mage::helper('tax')->getPrice($product, $product->getFinalPrice(), true));
 			
 			$objProduct->category = implode('|', $categories);
 			
@@ -155,7 +155,7 @@ class Chapagain_GoogleTagManager_Block_Gtm extends Mage_Core_Block_Template
 				
 				//$productItem['price'] = Mage::getModel('directory/currency')->formatTxt($item->getBasePrice(), array('display' => Zend_Currency::NO_SYMBOL));				
 				//$productItem['price'] = str_replace(',', '', Mage::getModel('directory/currency')->formatTxt($item->getBasePrice(), array('display' => Zend_Currency::NO_SYMBOL)));
-				$productItem['price'] = (string) Mage::app()->getLocale()->getNumber($item->getBasePrice());
+				$productItem['price'] = (double) Mage::app()->getLocale()->getNumber($item->getBasePrice());
 				
 				$productItem['category'] = implode('|', $categories);
 				$productItem['quantity'] = intval($item->getQtyOrdered()); // converting qty from decimal to integer
@@ -188,9 +188,9 @@ class Chapagain_GoogleTagManager_Block_Gtm extends Mage_Core_Block_Template
 			//$objOrder->transactionTax = str_replace(',', '', Mage::getModel('directory/currency')->formatTxt($order->getBaseTaxAmount(), array('display' => Zend_Currency::NO_SYMBOL)));
 			//$objOrder->transactionShipping = str_replace(',', '', Mage::getModel('directory/currency')->formatTxt($order->getBaseShippingAmount(), array('display' => Zend_Currency::NO_SYMBOL)));
 
-			$objOrder->transactionTotal = (string) Mage::app()->getLocale()->getNumber($order->getBaseGrandTotal());
-			$objOrder->transactionTax = (string) Mage::app()->getLocale()->getNumber($order->getBaseTaxAmount());
-			$objOrder->transactionShipping = (string) Mage::app()->getLocale()->getNumber($order->getBaseShippingAmount());
+			$objOrder->transactionTotal = (double) Mage::app()->getLocale()->getNumber($order->getBaseGrandTotal());
+			$objOrder->transactionTax = (double) Mage::app()->getLocale()->getNumber($order->getBaseTaxAmount());
+			$objOrder->transactionShipping = (double) Mage::app()->getLocale()->getNumber($order->getBaseShippingAmount());
 
 
 			$objOrder->transactionProducts = $aItems;
@@ -209,9 +209,9 @@ class Chapagain_GoogleTagManager_Block_Gtm extends Mage_Core_Block_Template
 			//$objOrder->ecommerce->purchase->actionField->tax = str_replace(',', '', Mage::getModel('directory/currency')->formatTxt($order->getBaseTaxAmount(), array('display' => Zend_Currency::NO_SYMBOL)));
 			//$objOrder->ecommerce->purchase->actionField->shipping = str_replace(',', '', Mage::getModel('directory/currency')->formatTxt($order->getBaseShippingAmount(), array('display' => Zend_Currency::NO_SYMBOL)));
 
-			$objOrder->ecommerce->purchase->actionField->revenue = (string) Mage::app()->getLocale()->getNumber($order->getBaseGrandTotal());
-			$objOrder->ecommerce->purchase->actionField->tax = (string) Mage::app()->getLocale()->getNumber($order->getBaseTaxAmount());
-			$objOrder->ecommerce->purchase->actionField->shipping = (string) Mage::app()->getLocale()->getNumber($order->getBaseShippingAmount());
+			$objOrder->ecommerce->purchase->actionField->revenue = (double) Mage::app()->getLocale()->getNumber($order->getBaseGrandTotal());
+			$objOrder->ecommerce->purchase->actionField->tax = (double) Mage::app()->getLocale()->getNumber($order->getBaseTaxAmount());
+			$objOrder->ecommerce->purchase->actionField->shipping = (double) Mage::app()->getLocale()->getNumber($order->getBaseShippingAmount());
 			
 			
 			$coupon = $order->getCouponCode();
