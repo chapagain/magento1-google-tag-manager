@@ -217,7 +217,7 @@ class Chapagain_GoogleTagManager_Block_Gtm extends Mage_Core_Block_Template
 			$coupon = $order->getCouponCode();
 			$objOrder->ecommerce->purchase->actionField->coupon = $coupon == null ? '' : $coupon;
 			
-			$objOrder->ecommerce->products = $productItems;
+			$objOrder->ecommerce->purchase->products = $productItems;
 						
 			$pageCategory = json_encode(array('pageCategory' => 'order-success'), JSON_PRETTY_PRINT);
 			
